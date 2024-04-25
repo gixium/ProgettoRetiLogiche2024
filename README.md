@@ -29,16 +29,16 @@ For the synthesis of the module, the Xilinx Vivado software was used with an Art
 ![fsm](/docs/report/img/fsm.png)
 
 The finite state machine is composed of 10 states, which are:
-- reset: state in which the module is located, following the asynchronous reset signal, where all signals are set to zero. This state can be reached from any other state at any point during computation;
-- start: state in which, after reading the sequence length and its initial address, the counters are initialized. The FSM enters this state following a high `i_start` signal;
-- check: state in which the module verifies if there are still words to process. We have decided to insert it immediately after start to handle the case where the sequence is empty (length `i_k` equal to zero);
-- read_w: state in which the module requests the word to be read from the RAM;
-- wait_w: state in which the module waits for the requested word to be available;
-- write_w: state in which the module sets the credibility value and overwrites, if necessary, the value of an unspecified word. The address of the word in question is also provided;
-- write_c: state in which the module writes the credibility value. The address of the credibility value in question is also provided;
-- next_add: state in which the module updates the saved memory address and decrements the remaining word counter;
-- done: state in which the module signals the end of computation by raising `o_done`. The FSM enters this state only when there are no other words to process;
-- idle: state in which the module lowers `o_done` and waits for a new high `i_start` signal to start a new computation (at which point the FSM goes to the start state). This state is entered only when `i_start` is lowered.
+- `reset`: state in which the module is located, following the asynchronous reset signal, where all signals are set to zero. This state can be reached from any other state at` any` point during computation;
+- `start`: state in which, after reading the sequence length and its initial address, the counters are initialized. The FSM enters this state following a high `i_start` si`gnal`;
+- `check`: state in which the module verifies if there are still words to process. We have decided to insert it immediately after start to handle the case where the se`quence` is empty (length `i_k` equal to zero);
+- `read_w`: state in which the module requests the word to be read from the RAM;
+- `wait_w`: state in which the module waits for the requested word to be available;
+- `write_w`: state in which the module sets the credibility value and overwrites, if necessary, the value of an unspecified word. The address of the word in question is al`so` provided;
+- `write_c`: state in which the module writes the credibility value. The address of the credibility value in question is also provided;
+- `next_add`: state in which the module updates the saved memory address and decrements the remaining word counter;
+- `done`: state in which the module signals the end of computation by raising `o_done`. The FSM enters this state only when there are no other words to process;
+- `idle`: state in which the module lowers `o_done` and waits for a new high `i_start` signal to start a new computation (at which point the FSM goes to the start state). This state is entered only when `i_start` is lowered.
 
 ### Processes Structure
 
