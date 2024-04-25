@@ -6,7 +6,7 @@ This repository contains the **final project** for the a.a.2023/2024 **Logic Net
 
 ## Problem Description
 
-![module](/home/gixium/Desktop/prova/mio/docs/report/img/module.png)
+![module](/docs/report/img/module.png)
 
 The module is responsible for completing a sequence starting from an $ADD$ memory address given. The sequence consists of `K` pairs of `8-bit` elements each: the first element identifies the "word" $W$ in input, while the second will be encoded in its "credibility value" $C$.
 
@@ -26,7 +26,7 @@ For the synthesis of the module, the Xilinx Vivado software was used with an Art
 
 ### FSM Structure
 
-![fsm](/home/gixium/Desktop/prova/mio/docs/report/img/fsm.png)
+![fsm](/docs/report/img/fsm.png)
 
 The finite state machine is composed of 10 states, which are:
 - reset: state in which the module is located, following the asynchronous reset signal, where all signals are set to zero. This state can be reached from any other state at any point during computation;
@@ -51,5 +51,5 @@ So, summarizing, the component utilizes these 3 processes to: manage the FSM sta
 
 ### Components used and Timing
 
-![report_components](/home/gixium/Desktop/prova/mio/docs/report/img/report_components.png)
-![report_timing](/home/gixium/Desktop/prova/mio/docs/report/img/report_timing.png)
+![report_components](/docs/report/img/report_components.png)
+![report_timing](/docs/report/img/report_timing.png)
