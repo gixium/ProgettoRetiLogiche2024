@@ -29,7 +29,7 @@ For the synthesis of the module, the Xilinx Vivado software was used with an Art
 ![fsm](/docs/report/img/fsm.png)
 
 The finite state machine is composed of 10 states, which are:
-- `reset`: state in which the module is located, following the asynchronous reset signal, where all signals are set to zero. This state can be reached from any other state at` any` point during computation;
+- `reset`: state in which the module is located, following the asynchronous reset signal, where all signals are set to zero. This state can be reached from any other state at any point during computation;
 - `start`: state in which, after reading the sequence length and its initial address, the counters are initialized. The FSM enters this state following a high `i_start` signal;
 - `check`: state in which the module verifies if there are still words to process. We have decided to insert it immediately after start to handle the case where the sequence is empty (length `i_k` equal to zero);
 - `read_w`: state in which the module requests the word to be read from the RAM;
