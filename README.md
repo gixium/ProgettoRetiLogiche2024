@@ -5,11 +5,11 @@ This repository contains the **final project** for the a.a.2023/2024 **Logic Net
 > A shortcut to the implementation of the module is provided with the `solution.vhd` file, along with its report `report.pdf`.
 
 **Table of contents**:
-- [Module description](##module-description)
-- [Module implementation](##module-implementation)
-    - [FSM structure](###fsm-structure)
-    - [Processes structure](###processes-structure)
-    - [Report information](###report)
+- [Module description](#module-description)
+- [Module implementation](#module-implementation)
+    - [FSM structure](#fsm-structure)
+    - [Processes structure](#processes-structure)
+    - [Report information](#report)
     
 
 ## Module description
