@@ -1,8 +1,10 @@
 # Logic Networks Final Project
 
-This repository contains the **final project** for the a.a.2023/2024 **Logic Networks** course at **Polytechnic of Milan**. Achieving a **score of 28/30**, the project revolves around the seamless integration of my **VHDL hardware module with a RAM**.
+This repository contains the **final project** for the a.a.2023/2024 **Logic Networks** course at **Polytechnic of Milan**. Achieving a **score of 28/30**, the project revolves around the seamless integration of the **VHDL hardware module with a RAM**.
 
-> A shortcut to my implementation of the module is provided with the `solution.vhd` file, along with its report `report.pdf`.
+> A shortcut to the implementation of the module is provided with the `solution.vhd` file, along with its report `report.pdf`.
+
+This page contains the [module description](## Module Description), along with the [proposed solution](## Proposed Solution) description which is mainly made of the [FSM structure](### FSM Structure) and the [processes structure](### Processes Structure); I also included some [report information](### Components used and Timing) extracted from Vivado.
 
 ## Module Description
 
