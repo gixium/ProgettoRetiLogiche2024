@@ -4,9 +4,9 @@ This repository contains the **final project** for the a.a.2023/2024 **Logic Net
 
 > A shortcut to the implementation of the module is provided with the `solution.vhd` file, along with its report `report.pdf`.
 
-This page contains the [module description](## Module Description), along with the [proposed solution](## Proposed Solution) description which is mainly made of the [FSM structure](### FSM Structure) and the [processes structure](### Processes Structure); I also included some [report information](### Components used and Timing) extracted from Vivado.
+This page contains the [module description](##Module), along with the [proposed implementation](##Implementation) description which is mainly made of the [FSM structure](###FSM) and the [processes structure](###Processes); I also included some [report information](###Report) extracted from Vivado.
 
-## Module Description
+## Module
 
 ![module](/docs/report/img/module.png)
 
@@ -22,11 +22,13 @@ To derive a general operating rule, knowing the $ADD$ address of the first word 
 
 The module must be able to recognize an asynchronous reset signal `i_rst`, which can be received at any time. Each new computation starts with the arrival of a high `i_start` signal, which can be received only at the end of a previous processing and can (but not necessarily) be preceded by `i_rst` (it certainly is at the first computation). This `i_start` signal remains high while the module is active. At the end of processing, the module raises the `o_done` signal; then, as soon as it recognizes the lowering of `i_start`, it sets `o_done` low.
 
-## Proposed Solution
+> Note: It is required that the module is able to correctly function witch a clock period of _at least_ `20 ns`.
+
+## Implementation
 
 For the synthesis of the module, the Xilinx Vivado software was used with an Artix-7 xc7a200tfbg484-1 FPGA target. We adopted the behavioral design paradigm. The component was implemented using a finite state machine (FSM) with 10 states, composed of 3 main processes to make the module structure more atomic and facilitate overall management.
 
-### FSM Structure
+### FSM
 
 ![fsm](/docs/report/img/fsm.png)
 
@@ -42,7 +44,7 @@ The finite state machine is composed of 10 states, which are:
 - `done`: state in which the module signals the end of computation by raising `o_done`. The FSM enters this state only when there are no other words to process;
 - `idle`: state in which the module lowers `o_done` and waits for a new high `i_start` signal to start a new computation (at which point the FSM goes to the start state). This state is entered only when `i_start` is lowered.
 
-### Processes Structure
+### Processes
 
 The module is made of 3 processes, which are:
 - `state_transition`: This process determines, based on the current state and control signals, the next state of the FSM.
@@ -51,7 +53,11 @@ The module is made of 3 processes, which are:
 
 So, summarizing, the component utilizes these 3 processes to: manage the FSM state, handle outputs with the RAM, save/update values in registers.
 
-### Components used and Timing
+### Report
+This last paragraph briefly contais some useful report information obtained from the Vivado software, such as:
+- number of Flip FLop used: `52`
+- number of Latch used (closest to `0` is better): `0`
+- slack time (closest to `20  ns` is better): `16.204 ns` 
 
 ![report_components](/docs/report/img/report_components.png)
 ![report_timing](/docs/report/img/report_timing.png)
